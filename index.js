@@ -25,7 +25,12 @@ async function main() {
         let isPackageFound = false;
         const packageVersions = response.data.length;
         for(let i = 0; i < packageVersions; i++) {
-            if(response.data[i].name === gthubPackageVersion.toString()) {
+            if(gthubPackageType !== "container" && response.data[i].name === gthubPackageVersion.toString()) {
+                isPackageFound = true;
+                break;
+            }
+
+            if(gthubPackageType === "container" && response.data[i].metadata.container.tags.includes(gthubPackageVersion.toString())) {
                 isPackageFound = true;
                 break;
             }
