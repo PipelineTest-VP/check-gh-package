@@ -1,0 +1,27 @@
+name: 'Get Package Status in GHPR'
+description: 'Get Package Status in GHPR'
+inputs:
+  gthub-org-name:
+    description: 'Github organization name'
+    required: true
+    default: ''
+  gthub-package-type:
+    description: 'Github package type. Cane be one of: npm, maven, rubygems, docker, nuget, container'
+    required: true
+    default: ''
+  gthub-package-name:
+    description: 'Github package name'
+    required: true
+    default: ''
+  gthub-package-version:
+    description: 'Github package version'
+    required: true
+    default: ''
+  gthub-token:
+    description: 'Github service account token'
+    required: true
+    default: ''
+
+runs:
+  using: 'node12'
+  main: 'index.js'
