@@ -40,8 +40,7 @@ async function main() {
         core.exportVariable("IS_PACKAGE_FOUND", isPackageFound);
         
     } catch (error) {
-        console.log(error);
-        core.setFailed(error.message);
+        core.exportVariable("IS_PACKAGE_FOUND", false);
     }
 }
 
